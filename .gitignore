@@ -1,0 +1,7 @@
+output/*
+input/*
+*.dll
+*.def
+*.res
+
+!.keep
