@@ -39,7 +39,20 @@ VOID generate_fingerprint(const char *function_name)
 
     // Create final filename
     TCHAR result[MAX_PATH * 4];
-    snprintf(result, MAX_PATH * 4, "c:\\users\\public\\downloads\\%s_%s_%s_%d.txt", &executable[1], &dll[1], function_name, IsElevated());
+    //snprintf(result, MAX_PATH * 4, "c:\\users\\public\\downloads\\%s_%s_%s_%d.txt", &executable[1], &dll[1], function_name, IsElevated());
+    strcpy(result, "c:\\users\\public\\downloads\\");
+    strcat(result, &executable[1]);
+    strcat(result, "_");
+    strcat(result, &dll[1]);
+    strcat(result, "_");
+    strcat(result, function_name);
+    strcat(result, "_");
+    if(IsElevated()){
+        strcat(result, "1");
+    } else {
+        strcat(result, "0");
+    }
+    strcat(result, ".txt");
 
     // Write to disk
     FILE *fptr;
