@@ -1,4 +1,4 @@
-x64=false
+x64=true
 if [ "$x64" = true ] ; then
     echo "Building for 64-bit Windows"
     tools_prefix='x86_64-w64'
